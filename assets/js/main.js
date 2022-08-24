@@ -62,7 +62,8 @@ function loadPage(){
                 //create subject__content
                 const cardContent = document.createElement('ul');
                 cardContent.className = "subject__content";
-                cardContent.setAttribute('data-matter',`${listed.subject}__${listed.matter}`);
+                cardContent.innerHTML = `<iframe width="100%" height="315" src=${listed.link} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                //cardContent.innerHTML = `<${listed.tag}</iframe>`;
         
 
                 //appendChild
@@ -81,29 +82,12 @@ function loadPage(){
             subjectButtons.forEach((button)=>{
                 button.addEventListener('click', () => {controlCard(button)});
             })
-        }).
-        then(()=>{
-            loadPlaylist();
-        })
-    
+        }) 
 }
 
-function loadPlaylist(){                //Called on loadPage();
-    const apiUrlSubjectMatter = 'http://127.0.0.1:5500/assets/html/subject-matter.html'; 
-    fetch(apiUrlSubjectMatter).
-        then((data)=>data.json()).
-        then((response) => {
-            response.forEach((listed)=>{
-                const contentLink = document.createElement('li');
-                contentLink.className = 'subject__content___li';
-                contentLink.innerHTML = `<a href=${listed.link}>${listed.name}</a>`;
-                const contentUl = document.querySelector(`[data-matter="${listed.subjectMatter}"]`);        //ul who will receive the li
-                
-                contentUl.appendChild(contentLink);
-            })
-        })
-}
-    
+
+   
+
 
 //Control Card
 function controlCard(button){           //Called on loadPage();
