@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronograma | Amanda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"> 
+
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/body.css">
+    <link rel="stylesheet" href="./assets/css/header.css">
+    <link rel="stylesheet" href="./assets/css/panel.css">
+    <link rel="stylesheet" href="./assets/css/subject.css">
+
+    <script src="https://kit.fontawesome.com/bdbaac8173.js" crossorigin="anonymous"></script>
+    <script src="./assets/js/main.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="header container">
+            <button class="nav__button">
+                <nav class="header__nav">
+                    <label class="header__nav___label">Português<input type="radio" name="subject" id="portugues" 
+                        class="header__nav___item" checked>
+                    </label>
+                    <label class="header__nav___label">Conhecimentos Gerais<input type="radio" name="subject" id="conhecimentos-gerais" 
+                        class="header__nav___item">
+                    </label>
+                    <label class="header__nav___label">Conhecimentos Específicos<input type="radio" name="subject" id="conhecimentos-especifico" 
+                        class="header__nav___item">
+                    </label>
+                    <label class="header__nav___label">Saúde Pública<input type="radio" name="subject" id="saude-publica" 
+                        class="header__nav___item">
+                    </label>     
+                </nav>              
+            </button>
+        </div>     
+    </header>
+    <main>
+        <section class="panel">
+        </section>
+        <section class="container subject">
+            <h2 class="subject__title">Português</h2>
+            <div class="subject__grid" data-subject="portugues"></div>
+        </section>
+        <section class="container subject">
+            <h2 class="subject__title">Conhecimentos Gerais</h2>  
+            <div class="subject__grid" data-subject="conhecimentosGerais"></div>
+        </section>
+        <section class="container subject">
+            <h2 class="subject__title">Conhecimentos Específicos</h2>
+            <div class="subject__grid" data-subject="conhecimentosEspecificos"></div>
+        </section>
+        <section class="container subject">
+            <h2 class="subject__title">Saúde Pública</h2> 
+            <div class="subject__grid" data-subject="saudePublica"></div>  
+        </section>
+    </main>
+    <footer>
+
+    </footer>  
+</body>
+</html>

@@ -1,0 +1,58 @@
+.subject{
+    background-color: rgb(241,99,155,0.8);
+    color: #fdfdfd;
+    margin: 1rem auto;
+    padding-top: 1rem;
+}
+
+.subject__grid{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+    padding: 1rem;
+}
+.subject__item{
+    background-color: #fdfdfd;
+    color: #000;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.subject__title{
+    text-align: center;
+    font-weight: 1000;
+    font-size: 2rem;
+}
+
+
+.subject__identification{
+    width: 80%;
+}
+.subject__identification___title{
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+.subject__identification___subtitle{
+
+}
+.subject__button{
+    all: unset;
+    background-color: transparent;
+    color: #000;
+    cursor: pointer;
+}
+
+.subject__content{
+    display: none;
+    width: 100%;
+}
+.subject__content___li{
+    margin: 0.5rem 0;
+}
+
+
+@media screen and (max-width: 698px) {
+
+}
