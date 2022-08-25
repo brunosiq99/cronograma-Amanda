@@ -27,7 +27,7 @@ chooseSubject();
 //create the subject items on subject grid
 
 function loadPage(){
-    const apiUrlSubject = 'http://127.0.0.1:5500/assets/html/subject.html';
+    const apiUrlSubject = 'https://brunosiq99.github.io/cronograma-Amanda/assets/html/subject.html';
     fetch(apiUrlSubject).
         then((data) => data.json()).
         then(response => 
@@ -80,7 +80,7 @@ function loadPage(){
             })
         }).then(()=>{
             //Add link or video to subjectMatter
-            const apiUrlSubjectMatter = 'http://127.0.0.1:5500/assets/html/subject-matter.html';
+            const apiUrlSubjectMatter = 'https://brunosiq99.github.io/cronograma-Amanda/assets/html/subject-matter.html';
             fetch(apiUrlSubjectMatter).
                 then((data) => data.json()).
                 then((response) => {
