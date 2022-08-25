@@ -27,7 +27,7 @@ chooseSubject();
 //create the subject items on subject grid
 
 function loadPage(){
-    const apiUrlSubject = 'https://brunosiq99.github.io/cronograma-Amanda/assets/html/subject.html';
+    const apiUrlSubject = 'http://127.0.0.1:5500/assets/html/subject.html';
     fetch(apiUrlSubject).
         then((data) => data.json()).
         then(response => 
@@ -51,21 +51,17 @@ function loadPage(){
                 cardIdentificationH3.className = "subject__identification___title";
                 cardIdentificationP.className = "subject__identification___subtitle";
 
-
                 //create subject__button
                 const cardButton = document.createElement('button');
                     
                 cardButton.className = "subject__button";
                 cardButton.innerHTML = '<i class="fa-solid fa-xl fa-angle-down"></i>';
-                    
-                
+                             
                 //create subject__content
-                const cardContent = document.createElement('ul');
-                cardContent.className = "subject__content";
-                cardContent.innerHTML = `<iframe width="100%" height="315" src=${listed.link} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-                //cardContent.innerHTML = `<${listed.tag}</iframe>`;
-        
-
+                const cardContentUl = document.createElement('ul');
+                cardContentUl.className = "subject__content";
+                cardContentUl.setAttribute("data-subjectMatter",`${listed.subject}__${listed.matter}`)
+                
                 //appendChild
                 section.appendChild(card);
 
@@ -74,7 +70,7 @@ function loadPage(){
                 cardIdentification.appendChild(cardIdentificationP);
 
                 card.appendChild(cardButton);
-                card.appendChild(cardContent);
+                card.appendChild(cardContentUl);
             })
         ).
         then(()=>{
@@ -82,11 +78,27 @@ function loadPage(){
             subjectButtons.forEach((button)=>{
                 button.addEventListener('click', () => {controlCard(button)});
             })
-        }) 
+        }).then(()=>{
+            //Add link or video to subjectMatter
+            const apiUrlSubjectMatter = 'http://127.0.0.1:5500/assets/html/subject-matter.html';
+            fetch(apiUrlSubjectMatter).
+                then((data) => data.json()).
+                then((response) => {
+                    response.forEach((listed)=>{
+                        const cardContentLi = document.createElement('li')
+                        cardContentLi.className = "subject__content___li";
+                        const cardContentUl = document.querySelector(`[data-subjectMatter=${listed.subjectMatter}]`)
+                        if(listed.type === "youtubeVideo"){
+                            cardContentLi.innerHTML = `<iframe width="100%" height="315" src=${listed.link} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                        }if(listed.type === "site"){
+                            cardContentLi.innerHTML = `<a class="subject__content___a" href="${listed.link}">${listed.name}</a>`
+                        }
+                        cardContentUl.appendChild(cardContentLi);
+                    })
+                })
+        })
 }
 
-
-   
 
 
 //Control Card
